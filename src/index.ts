@@ -6,11 +6,13 @@ import { QueryResult } from 'pg';
 import authRoutes from './routes/auth';
 import usersRoutes from './routes/users';
 import authMiddleware from './middleware/auth';
+import projectsRoutes from './routes/projects';
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/projects', projectsRoutes);
 app.use('/auth', authRoutes);
 app.use('/users', usersRoutes);
 
